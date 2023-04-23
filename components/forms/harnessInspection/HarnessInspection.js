@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Linking, Share } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -125,7 +125,13 @@ export default function HarnessInspection({ navigation }) {
     const pdfData = await Print.printAsync({ html: htmlString, orientation: 'landscape', fileName: 'MonthlyHarnessInspection.pdf' });
     if (pdfData && pdfData.uri) {
       // You can open the PDF file using Linking.openURL()
-      Linking.openURL(pdfData.uri);
+      // Linking.openURL(pdfData.uri);
+      // Show share menu
+      Share.share({
+        url: pdfData.uri,
+        message: 'Monthly Harness Inspection PDF',
+        title: 'Share PDF',
+      });
     }
   };
 
