@@ -66,7 +66,7 @@ export default function WelcomeScreen({ navigation }) {
         <Text style={styles.appName}>Scaffold Manager</Text>
         <Text style={styles.companyName(companyName)}>{companyName}</Text>
       </View>
-      <ScrollView style={{ paddingTop: 20 }}>
+      <ScrollView style={{ marginTop: 240 }}>
         <View style={styles.container}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Harness Inspection')}>
             <Text style={styles.text}>Point of Works</Text>
@@ -78,7 +78,13 @@ export default function WelcomeScreen({ navigation }) {
             <Text style={styles.text}>Scaffold Inspection</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Harness Inspection')}>
+            <Text style={styles.text}>Scaffold Handover</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Harness Inspection')}>
             <Text style={styles.text}>Harness Inspection</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Harness Inspection')}>
+            <Text style={styles.text}>Toolbox Talk Signing Sheet</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -102,7 +108,7 @@ const styles = StyleSheet.create({
     color: isSet.substr(isSet.length - 7) != 'not set' ? 'black' : 'red',
   }),
   button: {
-    width: 250,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 20,

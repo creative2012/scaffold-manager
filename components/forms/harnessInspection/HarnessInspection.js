@@ -186,7 +186,7 @@ export default function HarnessInspection({ navigation }) {
         fileName: 'MonthlyHarnessInspection.pdf',
       });
 
-      // You can open the PDF file using Linking.openURL()
+
       await shareAsync(generatePdf.uri);
     } else {
       await Print.printAsync({ html: htmlString, orientation: 'landscape', fileName: 'MonthlyHarnessInspection.pdf' });
