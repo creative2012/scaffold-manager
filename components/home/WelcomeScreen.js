@@ -55,18 +55,18 @@ export default function WelcomeScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={styles.container}>
+      <View style={styles.topContainer}>
         <TouchableOpacity onPress={pickImage}>
           <Image
             source={imageUri != 'image not set' ? { uri: imageUri } : require('../../assets/manager.png')}
-            style={{ width: 200, height: 200, marginTop: 50, marginBottom: 20 }}
+            style={{ width: 200, height: 200, marginTop: 50, marginBottom: 20, borderRadius: 20}}
             onLoad={handleImageLoad}
           />
         </TouchableOpacity>
         <Text style={styles.appName}>Scaffold Manager</Text>
         <Text style={styles.companyName(companyName)}>{companyName}</Text>
       </View>
-      <ScrollView style={{ marginTop: 150 }}>
+      <ScrollView style={{ paddingTop: 20 }}>
         <View style={styles.container}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Harness Inspection')}>
             <Text style={styles.text}>Point of Works</Text>
@@ -87,6 +87,10 @@ export default function WelcomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  topContainer: {
+    flex: 2,
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     alignItems: 'center',
