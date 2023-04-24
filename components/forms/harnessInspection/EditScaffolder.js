@@ -7,7 +7,8 @@ import {
   ScrollView,
   TextInput,
   Keyboard,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback, 
+  Alert
 } from 'react-native';
 import React, { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
@@ -15,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function EditScaffolder({ route, navigation }) {
-  const today = new Date();
+  
   const { id, name, harness, harnessIssueDate, lanyard, lanyardIssueDate, inspected, inspectionDate } = route.params;
   const [formData, setFormData] = useState({
     id: id,
@@ -60,6 +61,18 @@ export default function EditScaffolder({ route, navigation }) {
       console.error(error);
     }
   };
+
+  const deleteScaffolder = () =>{
+    Alert.alert('Delete Scaffolder', 'Are you sure ?', [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {text: 'DELETE', onPress: deleteItemById},
+      ]);
+   
+  }
   
   
 
@@ -71,7 +84,7 @@ export default function EditScaffolder({ route, navigation }) {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <>
         <View style={styles.controls}>
-        <TouchableOpacity onPress={deleteItemById}>
+        <TouchableOpacity onPress={deleteScaffolder}>
         <AntDesign name="delete" size={34} color="red" />
             <Text>Delete</Text>
           </TouchableOpacity>

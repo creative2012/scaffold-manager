@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, Button, StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { Image, StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as ImagePicker from 'expo-image-picker';
 

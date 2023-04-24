@@ -59,10 +59,10 @@ export default function HarnessInspection({ navigation }) {
   const [data, setData] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
-  const pass = async (id) => {
+  const pass = (id) => {
     updateItem(id, 'No Issues');
   };
-  const fail = async (id, name) => {
+  const fail = (id, name) => {
     setInspection('');
     setName(name);
     setId(id);
@@ -228,10 +228,7 @@ export default function HarnessInspection({ navigation }) {
             <Text>Add</Text>
           </TouchableOpacity>
           <View style={styles.controls2}>
-            <TouchableOpacity
-              style={{ alignItems: 'center', gap: 5 }}
-              onPress={() => {}}
-            >
+            <TouchableOpacity style={{ alignItems: 'center', gap: 5 }} onPress={() => navigation.navigate('Harness Information')}>
               <AntDesign name='infocirlceo' size={34} color='black' />
               <Text>Info</Text>
             </TouchableOpacity>
